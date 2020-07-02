@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: e994b5fb99da685dbf2dc849674e7ceb6c7a4fef777f05cd71b5528cc5f9a7c2
+-- hash: 3f1472ed63abe3298fe342cc1b8ed0e8af514c667da72ebfd9bc0ee76e074123
 
 name:           haskell-redis
 version:        0.1.0.0
@@ -27,7 +27,9 @@ source-repository head
 
 library
   exposed-modules:
-      Lib
+      Adapter.Redis.Config.RedisConfig
+      Adapter.Redis.Products
+      Domain.Products
   other-modules:
       Paths_haskell_redis
   hs-source-dirs:
