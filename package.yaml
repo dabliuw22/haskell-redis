@@ -28,6 +28,8 @@ dependencies:
 - time
 - text
 - uuid
+- bytestring
+- bytestring-conversion
 
 library:
   source-dirs: src
