@@ -2,7 +2,8 @@
 module Main where
 
 import qualified Adapter.Redis.Config.RedisConfig as R
-import Adapter.Redis.Products
+import qualified Adapter.Redis.Products as ADA
+import qualified Application.Products as APP
 import Control.Monad.IO.Class
 import Data.Maybe (fromJust, fromMaybe)
 import qualified Domain.Products as P
@@ -15,8 +16,8 @@ main = do
   conf <- load
   conn <- R.create conf
   newProduct <- new
-  insert <- set conn newProduct
-  one <- get conn (P.id (P.productId newProduct))
+  insert <- APP.set' (ADA.set conn) newProduct
+  one <- APP.get' (ADA.get conn) (P.id (P.productId newProduct))
   print one
 
 load :: MonadIO m => m R.Configuration

@@ -29,6 +29,7 @@ library
   exposed-modules:
       Adapter.Redis.Config.RedisConfig
       Adapter.Redis.Products
+      Application.Products
       Domain.Products
   other-modules:
       Paths_haskell_redis
