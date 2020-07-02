@@ -1,0 +1,83 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: e994b5fb99da685dbf2dc849674e7ceb6c7a4fef777f05cd71b5528cc5f9a7c2
+
+name:           haskell-redis
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/dabliuw22/haskell-redis#readme>
+homepage:       https://github.com/dabliuw22/haskell-redis#readme
+bug-reports:    https://github.com/dabliuw22/haskell-redis/issues
+author:         Will Leyton
+maintainer:     wleylop22@gmail.com
+copyright:      2020 Will Leyton
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/dabliuw22/haskell-redis
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_haskell_redis
+  hs-source-dirs:
+      src
+  build-depends:
+      async
+    , base >=4.7 && <5
+    , hedis
+    , hspec
+    , mtl
+    , text
+    , time
+    , uuid
+  default-language: Haskell2010
+
+executable haskell-redis-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_haskell_redis
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      async
+    , base >=4.7 && <5
+    , haskell-redis
+    , hedis
+    , hspec
+    , mtl
+    , text
+    , time
+    , uuid
+  default-language: Haskell2010
+
+test-suite haskell-redis-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_haskell_redis
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      async
+    , base >=4.7 && <5
+    , haskell-redis
+    , hedis
+    , hspec
+    , mtl
+    , text
+    , time
+    , uuid
+  default-language: Haskell2010
