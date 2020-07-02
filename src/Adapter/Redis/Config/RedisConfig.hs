@@ -17,4 +17,4 @@ connectInfo conf = defaultConnectInfo {
 }
 
 create :: Configuration -> IO Connection
-create conf = connect (connectInfo conf)
+create conf = (connect . connectInfo) conf
