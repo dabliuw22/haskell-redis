@@ -19,9 +19,11 @@ instance ProductRepository IO where
   get conn id = do
     result <- exec conn $ R.hmget (B.pack id) fields
     case result of
-          Right (h: t) -> toDomain (h:t)
-          Right []     -> return Nothing
-          Left e       -> return Nothing
+          Right list -> case list of 
+                         []                          -> return Nothing
+                         [Nothing, Nothing, Nothing] -> return Nothing
+                         (h : t)                     -> toDomain (h:t)
+          Left e     -> return Nothing
   set conn product = do
     cmd <- fromDomain product
     let key = B.pack $ P.id (P.productId product)
