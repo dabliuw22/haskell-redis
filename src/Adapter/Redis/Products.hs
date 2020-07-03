@@ -35,15 +35,15 @@ instance ProductRepository IO where
           Right a -> return ()
           Left e  -> return ()
 
-expSeconds :: Integer
-expSeconds = 60
-
 expire :: MonadIO m => R.Connection -> B.ByteString -> m Bool
 expire conn key = do
   result <- exec conn $ R.expire key expSeconds
   case result of
         Right b -> return b
         _       -> return False
+  where
+    expSeconds :: Integer
+    expSeconds = 60
 
 exec :: MonadIO m => R.Connection -> R.Redis a -> m a
 exec conn action = do
