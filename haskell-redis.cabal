@@ -40,6 +40,7 @@ library
     , base >=4.7 && <5
     , bytestring
     , bytestring-conversion
+    , exceptions
     , hedis
     , hspec
     , mtl
@@ -58,6 +59,9 @@ executable haskell-redis-exe
   build-depends:
       async
     , base >=4.7 && <5
+    , bytestring
+    , bytestring-conversion
+    , exceptions
     , haskell-redis
     , hedis
     , hspec
@@ -78,6 +82,9 @@ test-suite haskell-redis-test
   build-depends:
       async
     , base >=4.7 && <5
+    , bytestring
+    , bytestring-conversion
+    , exceptions
     , haskell-redis
     , hedis
     , hspec

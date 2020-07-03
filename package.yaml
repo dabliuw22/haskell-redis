@@ -30,6 +30,7 @@ dependencies:
 - uuid
 - bytestring
 - bytestring-conversion
+- exceptions
 
 library:
   source-dirs: src
